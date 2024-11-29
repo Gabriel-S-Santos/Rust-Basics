@@ -17,6 +17,9 @@ fn main() {
 }
 
 fn deposit(balance: &mut u32, amount: u32) {
+    if amount == 0 {
+        println!("{:?}", Errors::InvalidAmount);
+    }
     *balance += amount;
 }
 
