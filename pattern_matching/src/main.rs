@@ -2,6 +2,7 @@ enum CustomEnum {
     Enum1,
     Enum2(u32),
     Enum3(String),
+    
 }
 
 fn main() {
@@ -29,6 +30,23 @@ fn main() {
             println!("First: {}. Second: {}", first, second);
         },
         _ => println!("Not covered match case"),
+    }
+
+    //matching multiple patterns
+    let x = 1;
+    match x {
+        1 | 2 => println!("One or Two"),
+        3..=5 => println!("Between 3 and 5"),
+        _ => println!("Not covered match case"),
+    }
+
+    //matching guards
+    let pair = (2, -2);
+    match pair {
+        (x, y) if x == y => println!("These are twins"),
+        (x, y) if x + y == 0 => println!("Antimatter, boooom!"),
+        (x, _) if x % 2 == 1 => println!("The first one is odd"),
+        _ => println!("No correlation..."),
     }
 
 }
